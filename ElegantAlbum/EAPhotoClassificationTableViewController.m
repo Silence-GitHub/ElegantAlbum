@@ -32,8 +32,7 @@
 @end
 
 @implementation EAPhotoClassificationTableViewController {
-    
-    NSMutableSet<EAPhotoTemp *> *_photosToCreate;
+    NSMutableDictionary *_urlToPhotoDic;
 }
 
 #pragma mark - Properties
@@ -94,7 +93,7 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
         
         [weakSelf deleteEmptyPhotos:weakSelf.managedObjectContext];
         
-        _photosToCreate = [NSMutableSet set];
+        _urlToPhotoDic = [NSMutableDictionary dictionary];
         
         ALAssetsLibrary *lib = [ALAssetsLibrary new];
         [lib enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
@@ -115,7 +114,7 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
                 }
                 
                 NSURL *url = [result valueForProperty:ALAssetPropertyAssetURL];
-//                NSLog(@"URL: %@", url.absoluteString);
+                
                 NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                 NSEntityDescription *entity = [NSEntityDescription entityForName:@"EAPhoto" inManagedObjectContext:weakSelf.managedObjectContext];
                 [fetchRequest setEntity:entity];
@@ -129,18 +128,18 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
                     NSLog(@"Error: %@\nUser information: %@", error, error.userInfo);
                     
                 } else if (fetchedObjects.count == 0) {
-//                    NSLog(@"Find new photo");
+                    // Find new photo
                     // Store temp data to create photo later
                     // Should not create photo here
                     // It is fetching concurrently and creating photo will raise exception
-                    EAPhotoTemp *photo = [EAPhotoTemp new];
-                    photo.url = url.absoluteString;
-                    photo.creationDate = [result valueForProperty:ALAssetPropertyDate];
-                    photo.loc = [result valueForProperty:ALAssetPropertyLocation];
-                    [_photosToCreate addObject:photo];
+                    EAPhotoTemp *tempPhoto = [EAPhotoTemp new];
+                    tempPhoto.url = url.absoluteString;
+                    tempPhoto.creationDate = [result valueForProperty:ALAssetPropertyDate];
+                    tempPhoto.loc = [result valueForProperty:ALAssetPropertyLocation];
+                    _urlToPhotoDic[tempPhoto.url] = tempPhoto;
                     
                 } else if (fetchedObjects.count == 1) {
-//                    NSLog(@"Photo already saved");
+                    // Photo already saved
                     [weakSelf updateEAPhoto:fetchedObjects.firstObject withAsset:result];
                 }
             }];
@@ -156,7 +155,7 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Create new photos
-                for (EAPhotoTemp *photo in _photosToCreate) {
+                for (EAPhotoTemp *photo in _urlToPhotoDic.allValues) {
                     NSLog(@"Create photo with temp photo");
                     [weakSelf createEAPhotoWithPhoto:photo managedObjectContext:weakSelf.managedObjectContext];
                 }
@@ -206,7 +205,7 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
         }
         
         while (numberOfCheckedPhoto < numberOfPhoto) {
-//            NSLog(@"Waiting deleting photos");
+            NSLog(@"Waiting deleting photos");
         }
         NSLog(@"Finish deleting photos");
     } else {
@@ -282,7 +281,7 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
         return;
     }
     
-    _photosToCreate = [NSMutableSet set];
+    _urlToPhotoDic = [NSMutableDictionary dictionary];
     __weak typeof(self) weakSelf = self;
     __block BOOL reachNilGroup = NO;
     
@@ -308,7 +307,7 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
                 return;
             }
             NSURL *url = [result valueForProperty:ALAssetPropertyAssetURL];
-//                NSLog(@"URL: %@", url.absoluteString);
+            
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"EAPhoto" inManagedObjectContext:weakSelf.managedObjectContext];
             [fetchRequest setEntity:entity];
@@ -322,7 +321,7 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
                 NSLog(@"Error: %@\nUser information: %@", error, error.userInfo);
                 
             } else if (fetchedObjects.count == 0) {
-//                    NSLog(@"Find new photo");
+                // Find new photo
                 // Store temp data to create photo later
                 // Should not create photo here
                 // It is fetching concurrently and creating photo will raise exception
@@ -330,7 +329,7 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
                 tempPhoto.url = url.absoluteString;
                 tempPhoto.creationDate = assetDate;
                 tempPhoto.loc = [result valueForProperty:ALAssetPropertyLocation];
-                [_photosToCreate addObject:tempPhoto];
+                _urlToPhotoDic[tempPhoto.url] = tempPhoto;
             }
         }];
     } failureBlock:^(NSError *error) {
@@ -345,8 +344,8 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
         
         dispatch_async(dispatch_get_main_queue(), ^{
             // Create new photos
-            NSMutableSet<EAPhoto *> *photos = [NSMutableSet setWithCapacity:_photosToCreate.count];
-            for (EAPhotoTemp *tempPhoto in _photosToCreate) {
+            NSMutableSet<EAPhoto *> *photos = [NSMutableSet setWithCapacity:_urlToPhotoDic.count];
+            for (EAPhotoTemp *tempPhoto in _urlToPhotoDic.allValues) {
                 NSLog(@"Create photo with temp photo");
                 EAPhoto *photo = [weakSelf createEAPhotoWithPhoto:tempPhoto managedObjectContext:weakSelf.managedObjectContext];
                 [photos addObject:photo];
