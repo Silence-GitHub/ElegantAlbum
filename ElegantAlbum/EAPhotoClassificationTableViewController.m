@@ -103,9 +103,15 @@ static NSString *NUMBER_OF_ASSETS_KEY = @"Number_of_assets_key";
                 return;
             }
             
+            NSNumber *type = [group valueForProperty:ALAssetsGroupPropertyType];
+            if (type.unsignedIntegerValue == ALAssetsGroupPhotoStream) {
+                // Do not add photo stream
+                return;
+            }
+            
             [group setAssetsFilter:[ALAssetsFilter allPhotos]]; // Photo only
             
-            [group enumerateAssetsWithOptions:NSEnumerationConcurrent usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+            [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                 NSLog(@"Asset: %@", result);
                 if (!result) {
                     NSLog(@"Asset is nil");

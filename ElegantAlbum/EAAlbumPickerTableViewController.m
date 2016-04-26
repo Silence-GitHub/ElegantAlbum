@@ -231,7 +231,7 @@ static NSString *ALBUM_CELL_REUSE_IDENTIFIER = @"Albums";
     
     UITextField *textField = [alertView textFieldAtIndex:0];
     NSString *albumName = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    return albumName.length;
+    return albumName.length > 0;
 }
 
 @end

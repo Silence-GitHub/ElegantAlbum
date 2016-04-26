@@ -557,7 +557,7 @@ const static CGFloat  BOTTOM_MARGIN = 10.0f;
     
     UITextField *textField = [alertView textFieldAtIndex:0];
     NSString *albumName = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    return albumName.length;
+    return albumName.length > 0;
 }
 
 @end

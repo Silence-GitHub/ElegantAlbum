@@ -244,11 +244,10 @@
     NSDate *creationDate = [NSDate date];
     __weak typeof(self) weakSelf = self;
     ALAssetsLibrary *lib = [ALAssetsLibrary new];
+    NSLog(@"Before writing image");
     [lib writeImageToSavedPhotosAlbum:cell.ngImageView.image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
         
-        if (error) {
-            NSLog(@"Error: %@\nUser information: %@", error, error.userInfo);
-        } else {
+        if (assetURL) {
             // Create new EAPhoto
             EAPhoto *eaPhoto = [NSEntityDescription
                                 insertNewObjectForEntityForName:@"EAPhoto"
@@ -292,6 +291,9 @@
             } else {
                 NSLog(@"Error: %@\nUser information: %@", saveError, saveError.userInfo);
             }
+        } else {
+            NSLog(@"Error: %@\nUser information: %@", error, error.userInfo);
+            [weakSelf.class showPromptBoxWithText:@"Can not save photo" onView:weakSelf.view];
         }
     }];
 }
