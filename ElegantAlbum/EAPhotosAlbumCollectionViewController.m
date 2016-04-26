@@ -2,8 +2,7 @@
 //  EAPhotosAlbumCollectionViewController.m
 //  ElegantAlbum
 //
-//  Created by 陆凯波 on 16/2/22.
-//  Copyright © 2016年 Kaibo. All rights reserved.
+//  Created by Kaibo Lu on 16/2/22.
 //
 
 #import "EAPhotosAlbumCollectionViewController.h"

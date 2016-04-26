@@ -2,8 +2,7 @@
 //  EAPhotosRegionCollectionViewController.m
 //  ElegantAlbum
 //
-//  Created by 陆凯波 on 16/2/5.
-//  Copyright © 2016年 Kaibo. All rights reserved.
+//  Created by Kaibo Lu on 16/2/5.
 //
 
 #import "EAPhotosRegionCollectionViewController.h"
@@ -33,8 +32,8 @@
 
 // Override super method
 - (BOOL)canAddPhoto:(EAPhoto *)photo {
-#warning Should check photo region to determine whether to add photo
-    return YES;
+#warning State is not accurate. Should check photo region to determine whether to add photo
+    return [photo.state isEqualToString:self.fetchedObjectsSortedArr.firstObject.state];
 }
 
 // Override super method

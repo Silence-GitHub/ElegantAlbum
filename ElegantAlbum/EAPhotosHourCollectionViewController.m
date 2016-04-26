@@ -2,8 +2,7 @@
 //  EAPhotosHourCollectionViewController.m
 //  ElegantAlbum
 //
-//  Created by 陆凯波 on 16/1/25.
-//  Copyright © 2016年 Kaibo. All rights reserved.
+//  Created by Kaibo Lu on 16/1/25.
 //
 
 #import <Photos/Photos.h>
@@ -353,7 +352,7 @@ static const CGFloat TOOLBAR_HEIGHT = 44;
         if (![self canAddPhoto:photo]) {
             continue;
         }
-#warning Use better search method
+#warning Use better search algorithm
         NSUInteger indexOfPhoto = [self indexOfPhotoToAdd:photo];
         [self.fetchedObjectsSortedArr insertObject:photo atIndex:indexOfPhoto];
         

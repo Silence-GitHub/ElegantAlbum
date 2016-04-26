@@ -2,8 +2,7 @@
 //  EAPhotosMapViewController.m
 //  ElegantAlbum
 //
-//  Created by 陆凯波 on 16/2/5.
-//  Copyright © 2016年 Kaibo. All rights reserved.
+//  Created by Kaibo Lu on 16/2/5.
 //
 
 #import "EAPhotosMapViewController.h"
@@ -241,7 +240,7 @@ static NSString *annoViewReuseId = @"Photo";
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     NSLog(@"region did changed");
     [self updateAnnotions];
-    NSLog(@"Number of annotations = %lu", self.photoAnnos.count);
+    NSLog(@"Number of annotations = %lu", (unsigned long)self.photoAnnos.count);
 }
 
 - (void)updateAnnotions {

@@ -480,7 +480,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = Kaibo;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					4AA855E61C54F2A4000AE7AA = {
 						CreatedOnToolsVersion = 7.2;

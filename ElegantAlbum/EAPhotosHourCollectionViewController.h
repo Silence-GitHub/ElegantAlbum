@@ -2,8 +2,7 @@
 //  EAPhotosHourCollectionViewController.h
 //  ElegantAlbum
 //
-//  Created by 陆凯波 on 16/1/25.
-//  Copyright © 2016年 Kaibo. All rights reserved.
+//  Created by Kaibo Lu on 16/1/25.
 //
 
 #import <UIKit/UIKit.h>
@@ -37,10 +36,32 @@ static NSString * const PHOTO_SECTION_HEADER_REUSE_IDENTIFIER = @"Section header
 - (void)startEditingPhotos:(id)sender;
 - (void)finishEditingPhotos:(id)sender;
 - (NSMutableArray<EAPhoto *> *)selectedPhotos;
+
+/**
+ Add photos to data source, update collection view cells.
+ Do not update core data
+ */
 - (void)addPhotos:(NSSet *)photos;
+
+/**
+ Remove photos from data source, update collection view cells.
+ Do not update core data
+ */
 - (void)removePhotos:(NSSet *)photos;
 
+/**
+ Sent when action button pressed
+ */
 - (void)prepareForAction:(id)sender;
+
+/**
+ Sent when "add to" button pressed after selecting photos
+ */
 - (void)prepareForAddingSelectedPhotosToAlbum:(id)sender;
+
+/**
+ Sent when "add" button pressed
+ */
+- (void)prepareForAddingOtherPhotosToAlbum:(id)sender;
 
 @end
