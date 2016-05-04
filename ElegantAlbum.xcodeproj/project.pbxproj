@@ -47,6 +47,22 @@
 		4A5ABEED1CA8E23F002382AE /* EAAlbumPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABEEC1CA8E23F002382AE /* EAAlbumPickerTableViewCell.m */; };
 		4A5ABEF01CA8E5EF002382AE /* EACreateAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABEEF1CA8E5EF002382AE /* EACreateAlbumTableViewCell.m */; };
 		4A8D855F1CD9EEFA00208FEC /* EAAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D855E1CD9EEFA00208FEC /* EAAnnotationView.m */; };
+		4A8D85611CDA4E3E00208FEC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D85601CDA4E3E00208FEC /* README.md */; };
+		4A8D85721CDA4E4800208FEC /* Album_detail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85631CDA4E4800208FEC /* Album_detail.jpg */; };
+		4A8D85731CDA4E4800208FEC /* Clock_classification.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85641CDA4E4800208FEC /* Clock_classification.jpg */; };
+		4A8D85741CDA4E4800208FEC /* Date_classification.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85651CDA4E4800208FEC /* Date_classification.jpg */; };
+		4A8D85751CDA4E4800208FEC /* Foucus_on_photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85661CDA4E4800208FEC /* Foucus_on_photo.jpg */; };
+		4A8D85761CDA4E4800208FEC /* Local_photo_classifications.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85671CDA4E4800208FEC /* Local_photo_classifications.jpg */; };
+		4A8D85781CDA4E4800208FEC /* National_geographic_news.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85691CDA4E4800208FEC /* National_geographic_news.jpg */; };
+		4A8D85791CDA4E4800208FEC /* National_geographic_news_classifications.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D856A1CDA4E4800208FEC /* National_geographic_news_classifications.jpg */; };
+		4A8D857A1CDA4E4800208FEC /* National_geographic_news_content.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D856B1CDA4E4800208FEC /* National_geographic_news_content.jpg */; };
+		4A8D857B1CDA4E4800208FEC /* Note_and_album.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D856C1CDA4E4800208FEC /* Note_and_album.jpg */; };
+		4A8D857C1CDA4E4800208FEC /* Photo_detail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D856D1CDA4E4800208FEC /* Photo_detail.jpg */; };
+		4A8D857D1CDA4E4800208FEC /* Photo_with_note.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D856E1CDA4E4800208FEC /* Photo_with_note.jpg */; };
+		4A8D857E1CDA4E4800208FEC /* Save_network_photo_and_note.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D856F1CDA4E4800208FEC /* Save_network_photo_and_note.jpg */; };
+		4A8D857F1CDA4E4800208FEC /* State_classification.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85701CDA4E4800208FEC /* State_classification.jpg */; };
+		4A8D85801CDA4E4800208FEC /* Zoom_in.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85711CDA4E4800208FEC /* Zoom_in.jpg */; };
+		4A8D85821CDA515E00208FEC /* Map_classification.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D85811CDA515E00208FEC /* Map_classification.jpg */; };
 		4AA855EC1C54F2A4000AE7AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA855EB1C54F2A4000AE7AA /* main.m */; };
 		4AA855EF1C54F2A4000AE7AA /* EAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA855EE1C54F2A4000AE7AA /* EAAppDelegate.m */; };
 		4AA855F51C54F2A4000AE7AA /* EAMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA855F31C54F2A4000AE7AA /* EAMain.storyboard */; };
@@ -159,6 +175,22 @@
 		4A5ABEEF1CA8E5EF002382AE /* EACreateAlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACreateAlbumTableViewCell.m; sourceTree = "<group>"; };
 		4A8D855D1CD9EEFA00208FEC /* EAAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAnnotationView.h; sourceTree = "<group>"; };
 		4A8D855E1CD9EEFA00208FEC /* EAAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAnnotationView.m; sourceTree = "<group>"; };
+		4A8D85601CDA4E3E00208FEC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4A8D85631CDA4E4800208FEC /* Album_detail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Album_detail.jpg; sourceTree = "<group>"; };
+		4A8D85641CDA4E4800208FEC /* Clock_classification.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Clock_classification.jpg; sourceTree = "<group>"; };
+		4A8D85651CDA4E4800208FEC /* Date_classification.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Date_classification.jpg; sourceTree = "<group>"; };
+		4A8D85661CDA4E4800208FEC /* Foucus_on_photo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Foucus_on_photo.jpg; sourceTree = "<group>"; };
+		4A8D85671CDA4E4800208FEC /* Local_photo_classifications.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Local_photo_classifications.jpg; sourceTree = "<group>"; };
+		4A8D85691CDA4E4800208FEC /* National_geographic_news.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = National_geographic_news.jpg; sourceTree = "<group>"; };
+		4A8D856A1CDA4E4800208FEC /* National_geographic_news_classifications.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = National_geographic_news_classifications.jpg; sourceTree = "<group>"; };
+		4A8D856B1CDA4E4800208FEC /* National_geographic_news_content.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = National_geographic_news_content.jpg; sourceTree = "<group>"; };
+		4A8D856C1CDA4E4800208FEC /* Note_and_album.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Note_and_album.jpg; sourceTree = "<group>"; };
+		4A8D856D1CDA4E4800208FEC /* Photo_detail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo_detail.jpg; sourceTree = "<group>"; };
+		4A8D856E1CDA4E4800208FEC /* Photo_with_note.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo_with_note.jpg; sourceTree = "<group>"; };
+		4A8D856F1CDA4E4800208FEC /* Save_network_photo_and_note.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Save_network_photo_and_note.jpg; sourceTree = "<group>"; };
+		4A8D85701CDA4E4800208FEC /* State_classification.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = State_classification.jpg; sourceTree = "<group>"; };
+		4A8D85711CDA4E4800208FEC /* Zoom_in.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Zoom_in.jpg; sourceTree = "<group>"; };
+		4A8D85811CDA515E00208FEC /* Map_classification.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Map_classification.jpg; sourceTree = "<group>"; };
 		4AA855E71C54F2A4000AE7AA /* ElegantAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElegantAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA855EB1C54F2A4000AE7AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4AA855ED1C54F2A4000AE7AA /* EAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAppDelegate.h; sourceTree = "<group>"; };
@@ -290,9 +322,33 @@
 			path = ViewDeck;
 			sourceTree = "<group>";
 		};
+		4A8D85621CDA4E4800208FEC /* README_resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A8D85631CDA4E4800208FEC /* Album_detail.jpg */,
+				4A8D85641CDA4E4800208FEC /* Clock_classification.jpg */,
+				4A8D85651CDA4E4800208FEC /* Date_classification.jpg */,
+				4A8D85661CDA4E4800208FEC /* Foucus_on_photo.jpg */,
+				4A8D85671CDA4E4800208FEC /* Local_photo_classifications.jpg */,
+				4A8D85811CDA515E00208FEC /* Map_classification.jpg */,
+				4A8D85691CDA4E4800208FEC /* National_geographic_news.jpg */,
+				4A8D856A1CDA4E4800208FEC /* National_geographic_news_classifications.jpg */,
+				4A8D856B1CDA4E4800208FEC /* National_geographic_news_content.jpg */,
+				4A8D856C1CDA4E4800208FEC /* Note_and_album.jpg */,
+				4A8D856D1CDA4E4800208FEC /* Photo_detail.jpg */,
+				4A8D856E1CDA4E4800208FEC /* Photo_with_note.jpg */,
+				4A8D856F1CDA4E4800208FEC /* Save_network_photo_and_note.jpg */,
+				4A8D85701CDA4E4800208FEC /* State_classification.jpg */,
+				4A8D85711CDA4E4800208FEC /* Zoom_in.jpg */,
+			);
+			path = README_resources;
+			sourceTree = "<group>";
+		};
 		4AA855DE1C54F2A4000AE7AA = {
 			isa = PBXGroup;
 			children = (
+				4A8D85621CDA4E4800208FEC /* README_resources */,
+				4A8D85601CDA4E3E00208FEC /* README.md */,
 				4AEECCB41CC8FCCD0025CBA6 /* XLPlainFlowLayout */,
 				4A34A4771CBBC56A00A626A6 /* ViewDeck */,
 				4A34A46D1CBBC51000A626A6 /* TFHpple */,
@@ -516,9 +572,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8D85761CDA4E4800208FEC /* Local_photo_classifications.jpg in Resources */,
 				4AA855FD1C54F2A4000AE7AA /* LaunchScreen.storyboard in Resources */,
+				4A8D857C1CDA4E4800208FEC /* Photo_detail.jpg in Resources */,
+				4A8D85781CDA4E4800208FEC /* National_geographic_news.jpg in Resources */,
 				4AA855FA1C54F2A4000AE7AA /* Assets.xcassets in Resources */,
+				4A8D857E1CDA4E4800208FEC /* Save_network_photo_and_note.jpg in Resources */,
+				4A8D85821CDA515E00208FEC /* Map_classification.jpg in Resources */,
+				4A8D85721CDA4E4800208FEC /* Album_detail.jpg in Resources */,
+				4A8D85741CDA4E4800208FEC /* Date_classification.jpg in Resources */,
+				4A8D85801CDA4E4800208FEC /* Zoom_in.jpg in Resources */,
+				4A8D857A1CDA4E4800208FEC /* National_geographic_news_content.jpg in Resources */,
 				4AA855F51C54F2A4000AE7AA /* EAMain.storyboard in Resources */,
+				4A8D857B1CDA4E4800208FEC /* Note_and_album.jpg in Resources */,
+				4A8D857D1CDA4E4800208FEC /* Photo_with_note.jpg in Resources */,
+				4A8D85731CDA4E4800208FEC /* Clock_classification.jpg in Resources */,
+				4A8D85791CDA4E4800208FEC /* National_geographic_news_classifications.jpg in Resources */,
+				4A8D857F1CDA4E4800208FEC /* State_classification.jpg in Resources */,
+				4A8D85751CDA4E4800208FEC /* Foucus_on_photo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +617,7 @@
 				4A34A3F21CB8F24700A626A6 /* EANGTableViewController.m in Sources */,
 				4A34A4221CB8FCB200A626A6 /* UIImage+WebP.m in Sources */,
 				4AEECCBE1CCB12B60025CBA6 /* EANoteAlbumTableHeaderView.m in Sources */,
+				4A8D85611CDA4E3E00208FEC /* README.md in Sources */,
 				4A3AA60F1C58D6B300C977C2 /* EAPhotosStateCollectionViewController.m in Sources */,
 				4AA855EF1C54F2A4000AE7AA /* EAAppDelegate.m in Sources */,
 				4A3AA6121C58F21100C977C2 /* EANoteAlbumTableViewController.m in Sources */,
