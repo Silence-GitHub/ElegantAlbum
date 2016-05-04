@@ -7,13 +7,17 @@
 
 #import "EAPhotosMapViewController.h"
 
+#import "EAAnnotationView.h"
+
 @interface EAPhotosMapViewController ()
 
 @property (nonatomic, strong) NSMutableArray<EAPhotoAnnotation *> *photoAnnos;
 
 @end
 
-@implementation EAPhotosMapViewController
+@implementation EAPhotosMapViewController {
+    BOOL _shouldShowThumbnail; // Annotation view should show photo thumbnail
+}
 
 #pragma mark - Properties
 
@@ -88,6 +92,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishRefreshingPhotos:) name:FINISH_REFRESHING_PHOTO_NOTIFICATION object:nil];
     
     self.mapView.delegate = self; // 为了调用getter，初始化mapView
+    _shouldShowThumbnail = YES;
     
     [self setupLeftBarButtonItems];
 }
@@ -171,23 +176,23 @@ static NSString *annoViewReuseId = @"Photo";
     
     EAPhotoAnnotation *photoAnno = annotation;
     
-    MKAnnotationView *annoView = [mapView dequeueReusableAnnotationViewWithIdentifier:annoViewReuseId];
+    EAAnnotationView *annoView = (EAAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:annoViewReuseId];
     if (!annoView) {
-        annoView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annoViewReuseId];
+        annoView = [[EAAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annoViewReuseId];
         annoView.canShowCallout = YES;
     }
     
-    ALAssetsLibrary *lib = [ALAssetsLibrary new];
-    [lib assetForURL:[NSURL URLWithString:photoAnno.photo.url] resultBlock:^(ALAsset *asset) {
-        UIImage *image = [UIImage imageWithCGImage:asset.thumbnail];
-        image = [EAPublic image:image withSize:CGSizeMake(THUMBNAIL_SIDE_LENGTH_MEDIUM, THUMBNAIL_SIDE_LENGTH_MEDIUM)];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, THUMBNAIL_SIDE_LENGTH_MEDIUM, THUMBNAIL_SIDE_LENGTH_MEDIUM)];
-        imageView.image = image;
-        annoView.leftCalloutAccessoryView = imageView;
-    } failureBlock:^(NSError *error) {
-        NSLog(@"Error: %@\nUser information: %@", error, error.userInfo);
-    }];
+//    ALAssetsLibrary *lib = [ALAssetsLibrary new];
+//    [lib assetForURL:[NSURL URLWithString:photoAnno.photo.url] resultBlock:^(ALAsset *asset) {
+//        UIImage *image = [UIImage imageWithCGImage:asset.thumbnail];
+//        image = [EAPublic image:image withSize:CGSizeMake(THUMBNAIL_SIDE_LENGTH_MEDIUM, THUMBNAIL_SIDE_LENGTH_MEDIUM)];
+////        annoView.image = image;
+//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, THUMBNAIL_SIDE_LENGTH_MEDIUM, THUMBNAIL_SIDE_LENGTH_MEDIUM)];
+//        imageView.image = image;
+//        annoView.leftCalloutAccessoryView = imageView;
+//    } failureBlock:^(NSError *error) {
+//        NSLog(@"Error: %@\nUser information: %@", error, error.userInfo);
+//    }];
     
     UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annoView.rightCalloutAccessoryView = disclosureButton;
@@ -197,10 +202,31 @@ static NSString *annoViewReuseId = @"Photo";
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     
+    EAPhotoAnnotation *photoAnno = view.annotation;
+    EAAnnotationView *annoView = (EAAnnotationView *)view;
+    ALAssetsLibrary *lib = [ALAssetsLibrary new];
+    [lib assetForURL:[NSURL URLWithString:photoAnno.photo.url] resultBlock:^(ALAsset *asset) {
+        NSLog(@"Get image");
+        if (_shouldShowThumbnail) {
+            UIImage *image = [UIImage imageWithCGImage:asset.thumbnail];
+            annoView.imageView.image = [EAPublic image:image withSize:CGSizeMake(THUMBNAIL_SIDE_LENGTH_MAX, THUMBNAIL_SIDE_LENGTH_MAX)];
+            annoView.imageView.hidden = NO;
+        }
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Error: %@\nUser information: %@", error, error.userInfo);
+    }];
     NSLog(@"select annotation view");
 }
 
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    NSLog(@"Deselect");
+    EAAnnotationView *annoView = (EAAnnotationView *)view;
+    annoView.imageView.hidden = YES;
+}
+
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
+    [mapView deselectAnnotation:view.annotation animated:YES];
     
     EAPhotoAnnotation *anno = view.annotation;
     NSMutableArray *photos = [NSMutableArray arrayWithCapacity:anno.containedPhotoAnnotations.count + 1];
@@ -228,6 +254,7 @@ static NSString *annoViewReuseId = @"Photo";
     
     NSLog(@"region will change");
     NSLog(@"number of selected annotations = %lu", (unsigned long)mapView.selectedAnnotations.count);
+    _shouldShowThumbnail = NO;
     [self deselecteSelectedAnnotations];
 }
 
@@ -239,6 +266,7 @@ static NSString *annoViewReuseId = @"Photo";
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     NSLog(@"region did changed");
+    _shouldShowThumbnail = YES;
     [self updateAnnotions];
     NSLog(@"Number of annotations = %lu", (unsigned long)self.photoAnnos.count);
 }

@@ -84,7 +84,11 @@
 }
 
 - (NSString *)title {
-    return [NSString stringWithFormat:@"%lu photos", (unsigned long)self.containedPhotoAnnotations.count + 1];
+    NSUInteger count = self.containedPhotoAnnotations.count;
+    if (count) {
+        return [NSString stringWithFormat:@"%lu photos", (unsigned long)count + 1];
+    }
+    return @"1 photo";
 }
 
 @end
