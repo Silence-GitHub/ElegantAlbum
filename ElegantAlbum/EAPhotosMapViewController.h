@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
 #import "EAPublic.h"
 #import "EAAppDelegate.h"

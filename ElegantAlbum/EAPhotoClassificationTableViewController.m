@@ -5,11 +5,6 @@
 //  Created by Kaibo Lu on 16/1/24.
 //
 
-#import <AssetsLibrary/AssetsLibrary.h>
-#import <ImageIO/ImageIO.h>
-#import <CoreLocation/CoreLocation.h>
-#import <AddressBook/AddressBook.h>
-
 #import "EAPhotoClassificationTableViewController.h"
 #import "EAWaitingViewController.h"
 #import "EAPhotosMapViewController.h"

@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AssetsLibrary/AssetsLibrary.h>
 
 #import "EAPhotosPageViewController.h"
 #import "EAAlbumPickerTableViewController.h"

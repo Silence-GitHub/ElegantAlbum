@@ -5,8 +5,6 @@
 //  Created by Kaibo Lu on 16/1/26.
 //
 
-#import <AssetsLibrary/AssetsLibrary.h>
-
 #import "EAPhotoViewController.h"
 
 #import "EAAppDelegate.h"
@@ -194,8 +192,6 @@ const static CGFloat TEXT_VIEW_ORIGINAL_HEIGHT = 80.0f;
     // When keyborad shows in other view controller, the view frame changes
     // Change the view frame back when view appear
     self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-    
-//    self.viewDeckController.panningMode = IIViewDeckNoPanning;
 }
 
 - (void)didReceiveMemoryWarning {

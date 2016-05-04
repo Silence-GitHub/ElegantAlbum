@@ -46,6 +46,7 @@
 		4A5ABEEA1CA8D3F2002382AE /* EANoteAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABEE91CA8D3F2002382AE /* EANoteAlbumTableViewCell.m */; };
 		4A5ABEED1CA8E23F002382AE /* EAAlbumPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABEEC1CA8E23F002382AE /* EAAlbumPickerTableViewCell.m */; };
 		4A5ABEF01CA8E5EF002382AE /* EACreateAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABEEF1CA8E5EF002382AE /* EACreateAlbumTableViewCell.m */; };
+		4A8D855F1CD9EEFA00208FEC /* EAAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D855E1CD9EEFA00208FEC /* EAAnnotationView.m */; };
 		4AA855EC1C54F2A4000AE7AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA855EB1C54F2A4000AE7AA /* main.m */; };
 		4AA855EF1C54F2A4000AE7AA /* EAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA855EE1C54F2A4000AE7AA /* EAAppDelegate.m */; };
 		4AA855F51C54F2A4000AE7AA /* EAMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA855F31C54F2A4000AE7AA /* EAMain.storyboard */; };
@@ -156,6 +157,8 @@
 		4A5ABEEC1CA8E23F002382AE /* EAAlbumPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAlbumPickerTableViewCell.m; sourceTree = "<group>"; };
 		4A5ABEEE1CA8E5EF002382AE /* EACreateAlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACreateAlbumTableViewCell.h; sourceTree = "<group>"; };
 		4A5ABEEF1CA8E5EF002382AE /* EACreateAlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACreateAlbumTableViewCell.m; sourceTree = "<group>"; };
+		4A8D855D1CD9EEFA00208FEC /* EAAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAnnotationView.h; sourceTree = "<group>"; };
+		4A8D855E1CD9EEFA00208FEC /* EAAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAnnotationView.m; sourceTree = "<group>"; };
 		4AA855E71C54F2A4000AE7AA /* ElegantAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElegantAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA855EB1C54F2A4000AE7AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4AA855ED1C54F2A4000AE7AA /* EAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAAppDelegate.h; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 				4AA856211C562305000AE7AA /* EAPhotoCollectionViewCell.m */,
 				4ABB8A221C567BF2003BD0B3 /* EAPhotoCollectionSectionHeaderView.h */,
 				4ABB8A231C567BF2003BD0B3 /* EAPhotoCollectionSectionHeaderView.m */,
+				4A8D855D1CD9EEFA00208FEC /* EAAnnotationView.h */,
+				4A8D855E1CD9EEFA00208FEC /* EAAnnotationView.m */,
 				4A5ABEE81CA8D3F2002382AE /* EANoteAlbumTableViewCell.h */,
 				4A5ABEE91CA8D3F2002382AE /* EANoteAlbumTableViewCell.m */,
 				4AEECCBC1CCB12B60025CBA6 /* EANoteAlbumTableHeaderView.h */,
@@ -565,6 +570,7 @@
 				4ABB8A271C571613003BD0B3 /* EAPhotosPageViewController.m in Sources */,
 				4AA8560F1C54FA64000AE7AA /* EAAlbum+CoreDataProperties.m in Sources */,
 				4A34A4761CBBC51000A626A6 /* XPathQuery.m in Sources */,
+				4A8D855F1CD9EEFA00208FEC /* EAAnnotationView.m in Sources */,
 				4AA8560D1C54FA64000AE7AA /* EAPhoto+CoreDataProperties.m in Sources */,
 				4AC5A1721C64EDDC00E134B6 /* EAPhotosRegionCollectionViewController.m in Sources */,
 				4A34A41C1CB8FCB200A626A6 /* SDWebImageDownloaderOperation.m in Sources */,

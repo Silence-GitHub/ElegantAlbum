@@ -7,7 +7,16 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <CoreData/CoreData.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
+
+
+#import "TFHpple.h"
+#import "IIViewDeckController.h"
+#import "XLPlainFlowLayout.h"
 #import "EAPhoto.h"
 
 
@@ -124,10 +133,6 @@
 #define NATIONAL_GEOGRAPHIC_ALBUM_NAME @"National geographic"
 
 
-
-#import "TFHpple.h"
-#import "IIViewDeckController.h"
-#import "XLPlainFlowLayout.h"
 
 @interface EAPublic : NSObject
 

@@ -5,8 +5,6 @@
 //  Created by Kaibo Lu on 16/2/29.
 //
 
-#import <AssetsLibrary/AssetsLibrary.h>
-
 #import "EAPhotoDetailTableViewController.h"
 #import "EAPhotosAlbumCollectionViewController.h"
 #import "EAAlbumDetailTableViewController.h"
