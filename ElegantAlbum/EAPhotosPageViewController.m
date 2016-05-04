@@ -67,7 +67,7 @@
 }
 
 - (void)prepareForAction:(id)sender {
-#warning Use full resolution image ?
+    
     EAPhotoViewController *photoVC = self.viewControllers.firstObject;
     if (photoVC.photo.note) {
         // Has note
@@ -76,14 +76,24 @@
         [actionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
     } else {
         // No note
-        // Share image
-        [self presentActivityControllerWithActivityItems:@[photoVC.imageView.image]];
+        // Share photo only
+        [self sharePhotoWithNote:NO];
     }
 }
 
-- (void)presentActivityControllerWithActivityItems:(NSArray *)activityItems {
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-    [self presentViewController:activityVC animated:YES completion:nil];
+- (void)sharePhotoWithNote:(BOOL)shareNote {
+    EAPhotoViewController *photoVC = self.viewControllers.firstObject;
+    EAPhoto *photo = photoVC.photo;
+    __weak typeof(self) weakSelf = self;
+    ALAssetsLibrary *lib = [ALAssetsLibrary new];
+    [lib assetForURL:[NSURL URLWithString:photo.url] resultBlock:^(ALAsset *asset) {
+        UIImage *image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
+        NSArray *activityItems = shareNote ? @[image, photo.note] : @[image];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        [weakSelf presentViewController:activityVC animated:YES completion:nil];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Error: %@\nUser information: %@", error, error.userInfo);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -201,13 +211,13 @@
 #pragma mark - Action sheet delegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    EAPhotoViewController *photoVC = self.viewControllers.firstObject;
+    
     if (buttonIndex == 0) {
         // Share photo only
-        [self presentActivityControllerWithActivityItems:@[photoVC.imageView.image]];
+        [self sharePhotoWithNote:NO];
     } else if (buttonIndex == 1) {
         // Share photo with note
-        [self presentActivityControllerWithActivityItems:@[photoVC.imageView.image, photoVC.photo.note]];
+        [self sharePhotoWithNote:YES];
     }
 }
 
